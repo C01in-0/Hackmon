@@ -39,6 +39,27 @@
 
 Compose 使用 `live + ctfd`，SQLite 持久化到 `progress` 卷。端口只绑定本机，公开比赛时请配置 HTTPS 反向代理。身份验证模块为 `src/platform/ctfd.js`。
 
+### 反向代理与登录限流
+
+登录限流按客户端 IP 独立计数。未配置代理令牌时，后端只能看到代理地址，所有选手会共享同一额度，因此公开部署必须完成以下配置：
+
+1. 为 `.env` 的 `T1_PROXY_TOKEN` 生成一个独立于管理令牌的长随机值。
+2. 由代理覆盖 `X-Hackmon-Proxy-Token` 和 `X-Hackmon-Client-IP`，不要透传选手提供的同名请求头。
+
+Nginx 示例（将代理令牌替换为上述随机值，并补齐证书配置）：
+
+```nginx
+location / {
+    proxy_pass http://127.0.0.1:3000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Hackmon-Client-IP $remote_addr;
+    proxy_set_header X-Hackmon-Proxy-Token "替换为独立长随机代理令牌";
+    proxy_buffering off;
+}
+```
+
+配置后，每个公网 IP 每分钟各有 60 次登录额度，不再共用代理 IP 的额度。
+
 ## 本地预览与开发
 
 要求 Node.js 24 或更高版本，无第三方 npm 依赖：
@@ -73,7 +94,9 @@ demo 页面右下角提供“⚙ 开发”面板：
 设置管理令牌后启动，例如：
 
 ```bash
-T1_ADMIN_TOKEN=local_archive_token_change_me npm run dev
+export T1_ADMIN_TOKEN="$(node -e "console.log(require('node:crypto').randomBytes(32).toString('base64url'))")"
+printf '管理令牌：%s\n' "$T1_ADMIN_TOKEN"
+npm run dev
 ```
 
 打开 `http://127.0.0.1:4173/admin.html`，使用同一令牌连接。档案页支持：
@@ -96,3 +119,9 @@ live 模式必须设置 20–200 位的非示例 `T1_ADMIN_TOKEN`。使用子路
 | 题库 | `src/screening/questions.json` |
 
 当前保留原版图片和音频。替换时沿用原文件名，或同步修改代码中的引用；音频同时提供 OGG 和 WAV。
+
+## 许可证与免责声明
+
+代码采用 [MIT 许可证](LICENSE)。图片、音频等素材不在该许可证授权范围内，复办时需替换或另行取得授权。
+
+本项目只用于学习交流，不保证完全没有问题，请自行检查后再使用。

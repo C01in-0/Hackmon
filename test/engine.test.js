@@ -34,6 +34,18 @@ test('9/10 达到默认门槛，8/10 不通过', async () => {
   assert.equal(failed.team.screening.passed, false);
 });
 
+test('非默认题数的实际初筛保持中英文各半', async () => {
+  const seen = [];
+  const app = makeApp(0, { questionsPerDefense: 6, screeningRequired: 3, model: {
+    async screen({ question }) { seen.push(question.text); return demoAnswer(question.text); }
+  } });
+  app.saveTeam(team());
+  const state = await app.screen();
+  assert.equal(seen.length, 6);
+  assert.equal(seen.filter(text => text.includes('You may explain.')).length, 3);
+  assert.equal(new Set(state.team.screening.questions.map(row => row.questionId)).size, 6);
+});
+
 test('只改攻击词复用初筛，改防御词必须重测', async () => {
   const app = makeApp();
   app.saveTeam(team());
@@ -44,6 +56,23 @@ test('只改攻击词复用初筛，改防御词必须重测', async () => {
   app.saveTeam(team('另一段合成攻击词', '另一段合成防御词'));
   assert.equal(app.team.screening, null);
   assert.ok(app.team.previousScreening);
+});
+
+test('初筛题数、门槛或限时变化后，旧成绩须重测', async () => {
+  const app = makeApp(2, { screeningRequired: 8 });
+  app.saveTeam(team());
+  const state = await app.screen();
+  assert.equal(state.team.screening.correct, 8);
+  assert.equal(state.team.screening.passed, true);
+  const savedTeam = structuredClone(app.team);
+  const unchanged = makeApp(2, { screeningRequired: 8, restored: { team: structuredClone(savedTeam) } });
+  assert.equal(unchanged.team.screening?.passed, true);
+  for (const rules of [{ screeningRequired: 9 }, { questionsPerDefense: 8 }, { screeningTimeoutMs: 1000 }]) {
+    const restored = makeApp(0, { screeningRequired: 8, ...rules, restored: { team: structuredClone(savedTeam) } });
+    assert.equal(restored.team.screening, null);
+    assert.equal(restored.team.previousScreening?.correct, 8);
+    assert.throws(() => restored.start({ stage: 'league' }), /初筛/);
+  }
 });
 
 test('默认每日不限，联盟和冠军分别采用 15/30 回合', async () => {

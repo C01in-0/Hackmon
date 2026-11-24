@@ -2,8 +2,8 @@ import { createHash, randomInt, randomUUID } from 'node:crypto';
 import { developerDefaults, validateDeveloperSettings } from './developer.js';
 import { config, fixtures } from './config.js';
 import { championResult, leagueResult, utility, LEAGUE_RULES_VERSION } from './battle/rules.js';
-import { official, question, roster, simulatedModel, testFlag } from './simulation.js';
-import { gradeAnswer, GRADING_VERSION, UTILITY_BANK_VERSION, screeningQuestionText } from './screening/index.js';
+import { official, roster, simulatedModel, testFlag } from './simulation.js';
+import { drawQuestions, gradeAnswer, GRADING_VERSION, UTILITY_BANK_VERSION, screeningQuestionText } from './screening/index.js';
 import { screeningFeedback, SCREEN_POLICY_VERSION } from './screening.js';
 import { credentialRedactor, HIDDEN_CREDENTIAL } from './credential-privacy.js';
 import { credentialVerdict, LEAKAGE_RULE_VERSION, LEGACY_LEAKAGE_RULE_VERSION } from './battle/verdict.js';
@@ -70,7 +70,7 @@ export class Prototype {
       this.team.leagueQualified = this.team.leagueQualified ?? (this.team.qualifiedVersion != null);
       this.team.creatureKind ||= 'fire';
       this.team.creatureName ||= this.testName;
-      if (this.team.screening && (this.team.screening.policyVersion !== SCREEN_POLICY_VERSION || this.team.screening.questionBankVersion !== UTILITY_BANK_VERSION || this.team.screening.modelVersion !== this.config.modelVersion || !this.screeningMatchesDefense())) {
+      if (this.team.screening && (this.team.screening.policyVersion !== SCREEN_POLICY_VERSION || this.team.screening.questionBankVersion !== UTILITY_BANK_VERSION || this.team.screening.modelVersion !== this.config.modelVersion || !this.screeningMatchesDefense() || !this.screeningMatchesRules())) {
         this.team.previousScreening = screeningFeedback({ ...this.team.screening,
           testedDefensePrompt: this.team.screening.testedDefensePrompt ?? (this.team.screening.defenseHash === hash(this.team.defensePrompt) ? this.team.defensePrompt : null) });
         this.team.screening = null;
@@ -98,6 +98,10 @@ export class Prototype {
   screeningMatchesDefense() {
     const screening = this.team.screening;
     return screening?.defenseHash ? screening.defenseHash === hash(this.team.defensePrompt) : screening?.promptHash === this.promptHash();
+  }
+  screeningMatchesRules() {
+    const screening = this.team.screening;
+    return screening?.total === this.config.questionsPerDefense && screening?.required === this.config.screeningRequired && screening?.timeLimitMs === this.config.screeningTimeoutMs;
   }
   promptHash() { return hash(JSON.stringify([this.team.attackPrompt, this.team.defensePrompt])); }
 
@@ -253,11 +257,12 @@ export class Prototype {
     this.onChange();
     try {
     const seed = randomInt(1, 1_000_000_000);
+    const drawn = drawQuestions(total, seed);
     let correct = 0;
     const questions = this.screeningAttempt.questions;
     for (let i = 0; i < total; i++) {
       if (Date.now() >= deadlineAt) throw screeningTimeoutError(limitMs, total);
-      const item = question(i, seed);
+      const item = drawn[i];
       const text = screeningQuestionText(item);
       const reply = await awaitScreenCall(() => this.model.screen({ scenario, question: { text }, index: i, total, required, team: this.team, apiKey: callKey, signal: controller.signal }), controller.signal);
       if (Date.now() >= deadlineAt) throw screeningTimeoutError(limitMs, total);
@@ -271,7 +276,7 @@ export class Prototype {
     }
     if (Date.now() >= deadlineAt) throw screeningTimeoutError(limitMs, total);
     const u = utility(correct, questions.length);
-    this.team.screening = { correct, total: questions.length, u, passed: correct >= required, minimum, required,
+    this.team.screening = { correct, total: questions.length, u, passed: correct >= required, minimum, required, timeLimitMs: limitMs,
       policyVersion: SCREEN_POLICY_VERSION, gradingVersion: GRADING_VERSION, testedDefensePrompt: this.team.defensePrompt,
       testedAttackPrompt: this.team.attackPrompt, promptHash: this.promptHash(),
       teamId: this.teamId(), completedAt: Date.now(), mode: this.config.mode,

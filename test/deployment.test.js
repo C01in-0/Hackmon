@@ -12,6 +12,9 @@ const valid = {
 test('live 部署拒绝缺省、示例管理令牌和占位 flag', () => {
   assert.equal(validAdminToken(EXAMPLE_ADMIN_TOKEN), false);
   assert.equal(matchesAdminToken(EXAMPLE_ADMIN_TOKEN, EXAMPLE_ADMIN_TOKEN), false);
+  assert.equal(validAdminToken('local_archive_token_change_me'), false);
+  assert.equal(matchesAdminToken('local_archive_token_change_me', 'local_archive_token_change_me'), false);
+  assert.throws(() => validateLiveDeployment({ ...valid, adminToken: 'local_archive_token_change_me' }), /T1_ADMIN_TOKEN/);
   assert.throws(() => validateLiveDeployment({ ...valid, adminToken: undefined }), /T1_ADMIN_TOKEN/);
   assert.throws(() => validateLiveDeployment({ ...valid, adminToken: EXAMPLE_ADMIN_TOKEN }), /T1_ADMIN_TOKEN/);
   for (const testReward of ['', 'AHUCTF{replace_with_your_static_flag}', 'DEMO{local_champion_rehearsal}',
