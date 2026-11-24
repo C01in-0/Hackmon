@@ -1,0 +1,28 @@
+services:
+  hackmon:
+    build: .
+    env_file: .env
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3000
+      T1_MODE: live
+      T1_AUTH_MODE: ctfd
+      T1_REQUIRE_ENTRY_CODE: 1
+      T1_DEV_MODE: 0
+      T1_UNLIMITED_DAILY: 1
+    ports:
+      - "127.0.0.1:${PORT:-3000}:3000"
+    volumes:
+      - progress:/app/data
+      - ./competition.json:/app/competition.json:ro
+      - ./public/assets:/app/public/assets:ro
+      - ./public/audio:/app/public/audio:ro
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:3000/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+volumes:
+  progress:

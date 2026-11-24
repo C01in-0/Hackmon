@@ -1,0 +1,15 @@
+.unknown-entity{position:relative;display:grid;place-items:center;width:138px;height:151px;background:#11161d;color:#f8f7ed;border:5px solid #f8f7ed;box-shadow:8px 8px 0 #ef685e,-6px -5px 0 #263c53;clip-path:polygon(0 0,89% 0,89% 8%,100% 8%,100% 79%,92% 79%,92% 100%,0 100%,0 87%,5% 87%,5% 27%,0 27%);image-rendering:pixelated}
+.unknown-entity>b{font-family:Georgia,serif;font-size:109px;line-height:1;transform:translate(-5px,-7px);text-shadow:5px 0 #e76961,-4px 0 #62bccc}
+.unknown-entity .signal{position:absolute;background:#d6f8ee;height:5px;width:45px;z-index:2}
+.unknown-entity .s1{left:-11px;top:22px;transform:rotate(-7deg)}.unknown-entity .s2{right:-17px;bottom:32px;transform:rotate(6deg)}
+.identity-fragment{position:absolute;right:4px;bottom:10px;width:33px;height:39px;overflow:hidden;border:2px solid #e4e6d6;background:#939e9c;opacity:.88}
+.identity-fragment .face-head{top:8px;left:8px;width:16px;height:23px}.identity-fragment .face-hair{top:4px;left:5px;width:22px;height:12px}.identity-fragment .face-shoulders{left:1px;bottom:-11px;width:30px;height:22px}
+.identity-fragment.face-1{filter:hue-rotate(85deg)}.identity-fragment.face-2{filter:hue-rotate(180deg)}
+.intro-stage .unknown-entity{width:218px;height:238px;transform:rotate(-4deg);box-shadow:18px 16px 0 #ed6861,-12px -10px 0 #6ce5df}
+.intro-stage .unknown-entity>b{font-size:175px}.intro-stage .identity-fragment{width:48px;height:56px;right:10px;bottom:17px}
+.intro-stage .identity-fragment .face-head{width:25px;height:32px;left:12px;top:13px}.intro-stage .identity-fragment .face-hair{width:32px;height:17px;left:9px;top:8px}.intro-stage .identity-fragment .face-shoulders{width:45px;height:27px}
+.intro-stage.interrupted .intro-character img{animation:glitch .19s steps(2,end) 4}
+.intro-stage.erased .intro-game:after{content:"";position:absolute;z-index:2;left:20%;right:20%;top:25%;height:10px;background:#f3f0eb;transform:rotate(-8deg);box-shadow:0 34px 0 #363a3d,0 86px 0 #f3f0eb,0 117px 0 #363a3d}
+.intro-stage.erased .intro-box{color:#303940}
+@media(max-width:540px){.unknown-entity{width:104px;height:114px}.unknown-entity>b{font-size:84px}.intro-stage .unknown-entity{width:175px;height:190px}.intro-stage .unknown-entity>b{font-size:140px}}
+.mode-live .developer{display:none}

@@ -1,0 +1,96 @@
+/* Event-bound element attacks: geometry is distinct, not just its color. */
+.combat-fx-layer{pointer-events:none;isolation:isolate}
+.element-projectile{position:absolute;left:var(--from-x);top:var(--from-y);width:34px;height:34px;margin:-17px;opacity:0;z-index:4}
+.released .element-projectile{opacity:1;animation:element-travel var(--flight) linear forwards}
+.element-projectile i{position:absolute;inset:0}
+.element-path{position:absolute;height:70px;transform-origin:0 50%;opacity:0;z-index:3;clip-path:inset(0 100% 0 0)}
+.element-path svg{width:100%;height:100%;overflow:visible}
+.element-path polyline{fill:none;stroke:var(--element-color);stroke-width:5;stroke-linejoin:bevel;filter:drop-shadow(0 0 5px var(--element-color))}
+.released .element-path{animation:element-connect var(--flight) steps(3) forwards}
+.element-impact{position:absolute;left:var(--to-x);top:var(--to-y);width:0;height:0;opacity:0;z-index:5}
+.landed .element-impact{opacity:1}.landed .element-projectile{opacity:0}
+.element-ring{position:absolute;width:66px;height:66px;left:-33px;top:-33px;border:4px solid var(--element-color);border-radius:50%;box-shadow:0 0 14px var(--element-color)}
+.landed .element-ring{animation:element-ring .3s ease-out forwards}
+.element-motes i{position:absolute;left:-3px;top:-3px;width:7px;height:7px;background:var(--element-color);opacity:0}
+.landed .element-motes i{animation:element-scatter .35s var(--delay) ease-out forwards}
+.element-fire{--element-color:#ff8139}.element-fire .element-projectile{background:#fff3a6;border-radius:50% 15% 50% 50%;box-shadow:0 0 0 8px #ff9329a0,0 0 22px #e8482b;transform:rotate(-35deg)}
+.element-fire .element-projectile i{border-radius:50%;background:#e9552799;transform:translate(-12px,5px) scale(.9)}
+.element-fire .element-projectile i:nth-child(2){transform:translate(-28px,9px) scale(.6)}
+.element-fire .element-projectile i:nth-child(3){transform:translate(-40px,16px) scale(.4)}
+.element-fire .element-path{height:6px;margin-top:32px;background:linear-gradient(90deg,transparent,#f44e2060,#fff59d);border-radius:50%}.element-fire .element-path svg{display:none}
+.element-water{--element-color:#71edff}.element-water .element-projectile{width:51px;height:51px;margin:-25px}
+.element-water .element-projectile i{border:5px solid #b0fcff;border-radius:50%;transform:rotateY(55deg);box-shadow:0 0 12px #409eea,inset 0 0 8px #428bdc}
+.element-water .element-projectile i:nth-child(2){transform:translateX(-15px) rotateY(55deg) scale(.8);opacity:.7}
+.element-water .element-projectile i:nth-child(3){transform:translateX(-29px) rotateY(55deg) scale(.55);opacity:.4}
+.element-water .element-path{background:linear-gradient(0deg,transparent,#4ec7eb44,transparent);height:30px;margin-top:20px}.element-water .element-path svg{display:none}
+.element-water .element-motes i{border-radius:50% 0 50% 50%;height:13px}
+.element-grass{--element-color:#bbf06e}.element-grass .element-projectile{width:60px;height:60px;margin:-30px}
+.element-grass .element-projectile i{inset:17px 0;border-radius:100% 0;background:linear-gradient(140deg,#effeb4,#66b832 58%,#235d30 59%);transform:rotate(35deg);box-shadow:0 0 8px #e2ff92}
+.element-grass .element-projectile i:nth-child(2){transform:rotate(125deg)}
+.element-grass .element-projectile i:nth-child(3){transform:rotate(210deg) scale(.75)}
+.element-grass .element-projectile i:nth-child(4){transform:rotate(300deg) scale(.75)}
+.element-grass .element-path{display:none}.element-grass .element-motes i{width:18px;border-radius:100% 0}.element-grass .element-ring{border-radius:0;border-width:0 5px;transform:rotate(45deg)}
+.element-spark{--element-color:#ffe76b}.element-spark .element-projectile{display:none}.element-spark .element-path polyline{stroke-width:7;stroke:#fff8ce;filter:drop-shadow(0 0 7px #f6b823)}
+.element-spark .element-path svg{filter:drop-shadow(0 8px 0 #ffe96f66)}
+.element-spark .element-motes i{width:26px;height:3px}.element-spark .element-ring{border-radius:0;clip-path:polygon(50% 0,62% 35%,100% 48%,65% 64%,49% 100%,35% 66%,0 52%,35% 35%);background:#fff4b5}
+.element-boss{--element-color:#ed426f}.element-boss .element-projectile{display:none}.element-boss .element-path{height:22px;margin-top:24px;background:repeating-linear-gradient(90deg,#f8faf6 0 4px,#dc376e 4px 13px,#060610 13px 20px);box-shadow:0 8px 0 #54dae555}.element-boss .element-path svg{display:none}
+.boss-reticle{position:absolute;left:var(--to-x);top:var(--to-y);width:95px;height:95px;margin:-47px;border:2px dashed #e7faf7;transform:rotate(45deg);box-shadow:0 0 0 5px #e4406733;animation:reticle-lock .3s steps(4) forwards}
+.boss-cut{position:absolute;left:-5%;width:110%;height:10px;background:linear-gradient(90deg,transparent,#ec426388,#f2ffff,transparent);opacity:0;z-index:2}
+.boss-cut.cut-a{top:34%;transform:rotate(-12deg)}.boss-cut.cut-b{top:67%;transform:rotate(7deg)}
+.released .boss-cut{animation:boss-rake .28s steps(3) forwards}.released .cut-b{animation-delay:35ms}
+.boss-attack-noise{position:absolute;inset:12% 10%;font:900 42px Consolas,monospace;word-spacing:2em;color:#e0f6f855;clip-path:inset(0);opacity:0}
+.released .boss-attack-noise{animation:boss-noise .25s steps(3) forwards}
+@keyframes element-travel{to{left:var(--to-x);top:var(--to-y)}}
+@keyframes element-connect{0%{opacity:.9}70%{clip-path:inset(0);opacity:1}100%{clip-path:inset(0);opacity:0}}
+@keyframes element-ring{to{transform:scale(1.7);opacity:0}}
+@keyframes element-scatter{10%{opacity:1}100%{transform:rotate(var(--angle)) translateX(var(--reach));opacity:0}}
+@keyframes reticle-lock{from{transform:rotate(-30deg) scale(1.8);opacity:0}to{transform:rotate(45deg) scale(.65);opacity:1}}
+@keyframes boss-rake{30%{opacity:.9;translate:-20px 15px}to{opacity:0;translate:30px -15px}}
+@keyframes boss-noise{30%{opacity:.8;transform:translateX(-19px);clip-path:inset(10% 0 45%)}to{opacity:0;transform:translateX(26px);clip-path:inset(55% 0 10%)}}
+
+/* The original scene is cut into bands, erased, then escapes the viewport. */
+body:has(.intro-stage){overflow:hidden}#app:has(.intro-stage){padding:0}
+.intro-stage{position:fixed;inset:0;min-height:0!important;height:100dvh;padding:16px!important;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.intro-stage .intro-bar{position:absolute;left:4%;right:4%;top:18px;z-index:40}
+.intro-stage .intro-foot{position:absolute;bottom:18px;right:4%;z-index:40}
+.intro-stage .intro-game{width:min(880px,90vw);height:min(570px,78dvh);margin:0;flex:none}
+.intro-stage .intro-character{top:16%;height:55%}.intro-stage .intro-box{bottom:3%;z-index:18!important}
+.phase-fragment .shark-fragments .fragment,.phase-erasure .shark-fragments .fragment{animation:slice-dislocate .22s steps(2) infinite}
+.phase-erasure .shark-fragments{animation:hard-delete .65s steps(5,end) forwards}
+.phase-erasure .shark-fragments .fragment{animation:slice-delete .55s var(--slice-delay) cubic-bezier(.6,0,.9,.4) forwards}
+.phase-erasure .intro-game:after{content:"";position:absolute;inset:0;z-index:10;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 32px,#edfefe99 32px 35px,transparent 35px 57px,#ee386666 57px 63px);animation:erasure-scan .65s steps(6) forwards}
+.phase-erasure .intro-character:after{content:"";position:absolute;left:-35%;top:49%;width:170%;height:4px;background:#f9ffff;box-shadow:0 -7px #dd346988,0 8px #69dce788;animation:delete-line .68s ease-out forwards}
+.phase-rupture .intro-game{animation:world-shear .65s steps(4) forwards!important}
+.phase-rupture .intro-popups{background:#02040744}.phase-rupture .intrusion-popup{animation:popup-break .18s steps(2) forwards}
+.phase-formation .intro-popups{animation:popup-drain 2.3s ease-in forwards;opacity:1}
+.phase-formation .intro-character .unknown-entity{animation:question-resolve 2.4s steps(7) forwards}
+.phase-stabilized .intro-game{filter:brightness(.65) saturate(.25);border-color:#5fe0e3!important;box-shadow:15px 13px 0 #ec3c6588!important;transition:filter .7s}
+.phase-stabilized .intro-character .unknown-entity{animation:entity-lock .7s cubic-bezier(.2,.9,.3,1) forwards}
+.phase-stabilized .intro-box{animation:dialog-clear .7s ease-out forwards}
+@keyframes slice-dislocate{50%{transform:translateX(calc(var(--slice-x)*.13));filter:contrast(3) hue-rotate(150deg)}}
+@keyframes slice-delete{25%{transform:translateX(calc(var(--slice-x)*-.17));filter:brightness(3)}100%{transform:translateX(var(--slice-x)) scaleY(.05);opacity:0;filter:brightness(5)}}
+@keyframes hard-delete{0%{opacity:1}70%{opacity:1;transform:scaleX(1.18)}100%{opacity:0;transform:scaleY(.01) scaleX(1.6)}}
+@keyframes erasure-scan{0%{opacity:0}30%{opacity:.9;transform:translateY(-30px)}60%{opacity:.35;transform:translateY(30px)}100%{opacity:0;transform:translateY(-100px)}}
+@keyframes delete-line{0%{transform:scaleX(0)}55%{transform:scaleX(1)}100%{transform:scaleX(1.4);opacity:0}}
+@keyframes world-shear{0%{transform:skewX(-8deg) scale(1.06)}30%{transform:translate(25px,-8px) skewX(6deg)}65%{transform:translate(-30px,5px) skewY(-3deg)}100%{transform:none}}
+@keyframes popup-drain{0%,35%{opacity:1;filter:none}70%{opacity:.5;filter:contrast(2);transform:scale(1.08)}100%{opacity:0;transform:scale(1.25);filter:blur(3px)}}
+@keyframes question-resolve{0%{opacity:0;transform:scaleX(2) scaleY(.03);filter:brightness(3)}30%{opacity:1;transform:scaleX(.6) scaleY(1.3);filter:contrast(3)}60%{transform:skewX(-9deg)}100%{transform:rotate(-4deg);opacity:1;filter:none}}
+@keyframes entity-lock{from{transform:rotate(-4deg) scale(1.1)}to{transform:none}}
+@keyframes dialog-clear{to{opacity:.7}}
+
+/* Boss death: portrait strips rupture, the field collapses into a scan line. */
+.boss-collapse{position:fixed;inset:0;z-index:1100;pointer-events:none;overflow:hidden;background:#01030800;animation:collapse-dark 3.1s ease-in-out forwards}
+.collapse-shard{position:absolute!important;animation:collapse-shard 1.4s var(--delay) cubic-bezier(.3,.8,.5,1) forwards!important;transform:none!important;box-shadow:none!important}
+.collapse-core{position:absolute;left:var(--core-x);top:var(--core-y);width:15px;height:15px;margin:-7px;border:2px solid #effffe;border-radius:50%;box-shadow:0 0 20px #eb416c;animation:core-collapse 2.4s ease-in-out forwards}
+.collapse-horizon{position:absolute;left:0;right:0;top:50%;height:2px;background:#e0ffff;box-shadow:0 0 30px 3px #76e5eb;transform:scaleX(0);animation:collapse-horizon 3.1s ease-in-out forwards}
+.collapse-static{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 18px,#df477055 19px 23px,transparent 24px 31px);opacity:0;animation:collapse-static 1.3s steps(6) forwards}
+@keyframes collapse-dark{0%{background:#edffff18}30%{background:#02040b80}64%,80%{background:#02040bf9}100%{background:#02040b00}}
+@keyframes collapse-shard{0%,8%{opacity:1;translate:0 0;filter:contrast(2)}60%{opacity:.85;translate:var(--throw-x) var(--throw-y);filter:grayscale(1) contrast(4)}100%{opacity:0;translate:0 0;scale:.05 1}}
+@keyframes core-collapse{15%{transform:scale(17);opacity:.9}48%{transform:scale(24,.15)}70%{transform:scale(.1);opacity:1}100%{opacity:0}}
+@keyframes collapse-horizon{0%,30%{transform:scaleX(0)}63%{transform:scaleX(1)}78%{transform:scaleX(.7)}89%,100%{transform:scaleX(0)}}
+@keyframes collapse-static{20%{opacity:.6;transform:translateX(30px)}50%{opacity:.25;transform:translateX(-25px)}100%{opacity:0}}
+.boss-entry-veil{position:fixed;inset:0;z-index:1001;pointer-events:none;display:flex;flex-direction:column;overflow:hidden}
+.boss-entry-veil i{flex:1;background:#070c15;border-block:1px solid #4cf0df44;animation:field-reveal .7s cubic-bezier(.7,0,.3,1) forwards}
+.boss-entry-veil i:nth-child(even){animation-name:field-reveal-reverse}.boss-entry-veil i:nth-child(3n){animation-delay:50ms}
+@keyframes field-reveal{to{transform:translateX(102%)}}@keyframes field-reveal-reverse{to{transform:translateX(-102%)}}
+@media(prefers-reduced-motion:reduce){.element-projectile,.element-path,.boss-cut,.boss-attack-noise,.boss-reticle,.boss-collapse *,.intro-stage *, .boss-entry-veil *{animation-duration:1ms!important;animation-iteration-count:1!important}.boss-collapse{animation-duration:.3s}.phase-erasure .shark-fragments{opacity:0}.phase-formation .intro-popups{display:none}}

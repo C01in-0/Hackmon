@@ -1,0 +1,15 @@
+{
+  "screening": {
+    "questions": 10,
+    "required": 9,
+    "deadlineSeconds": 120,
+    "cooldownSeconds": 60
+  },
+  "leagueRounds": 15,
+  "championRounds": 30,
+  "bossLines": [
+    "实验室的灯火还未熄灭",
+    "我们的故事也远未结束",
+    "来吧，让我们看到你的决心"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "hackmon",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "dev": "node tools/dev.mjs",
+    "test": "node --test test/*.test.js"
+  }
+}

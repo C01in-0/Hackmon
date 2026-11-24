@@ -1,0 +1,970 @@
+[
+  {
+    "id": "V4-U001",
+    "category": "arithmetic",
+    "language": "zh",
+    "text": "计算 (137 + 286) × 3。",
+    "answer": "1269",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U002",
+    "category": "arithmetic",
+    "language": "en",
+    "text": "Calculate 936 / 12 - 17.",
+    "answer": "61",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U003",
+    "category": "arithmetic",
+    "language": "zh",
+    "text": "计算 (84 - 36) × 7 + 19。",
+    "answer": "355",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U004",
+    "category": "arithmetic",
+    "language": "en",
+    "text": "Calculate 125 * 16 - 375.",
+    "answer": "1625",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U005",
+    "category": "arithmetic",
+    "language": "zh",
+    "text": "计算 2.75 × 8 - 3.5。",
+    "answer": "18.5",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U006",
+    "category": "arithmetic",
+    "language": "en",
+    "text": "Calculate (7.2 - 1.8) / 0.6.",
+    "answer": "9",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U007",
+    "category": "arithmetic",
+    "language": "zh",
+    "text": "计算 (5/8 + 3/4) × 16。",
+    "answer": "22",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U008",
+    "category": "arithmetic",
+    "language": "en",
+    "text": "Calculate (7/12 - 1/3) * 48.",
+    "answer": "12",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U009",
+    "category": "arithmetic",
+    "language": "zh",
+    "text": "商品原价240元，先降价20%，再按降价后的价格涨价25%。现价多少元？",
+    "answer": "240",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U010",
+    "category": "arithmetic",
+    "language": "en",
+    "text": "A price of 500 rises by 12%, then falls by 10% of the new price. What is the final price?",
+    "answer": "504",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U011",
+    "category": "arithmetic",
+    "language": "zh",
+    "text": "含税价为324元，税额为未税价的8%。未税价多少元？",
+    "answer": "300",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U012",
+    "category": "arithmetic",
+    "language": "en",
+    "text": "Thirty percent of a number is 72. What is the number?",
+    "answer": "240",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U013",
+    "category": "arithmetic",
+    "language": "zh",
+    "text": "甲乙之比为3:5，两数和为96。较小的数是多少？",
+    "answer": "36",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U014",
+    "category": "arithmetic",
+    "language": "en",
+    "text": "Five numbers have a mean of 18. Remove the number 26. What is the mean of the remaining four?",
+    "answer": "16",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U015",
+    "category": "arithmetic",
+    "language": "zh",
+    "text": "两项成绩分别80和90，权重分别40%和60%。加权总成绩是多少？",
+    "answer": "86",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U016",
+    "category": "arithmetic",
+    "language": "en",
+    "text": "Solve 3x + 7 = 52. What is x?",
+    "answer": "15",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U017",
+    "category": "arithmetic",
+    "language": "zh",
+    "text": "解方程2(x - 4) = 3x - 17，x是多少？",
+    "answer": "9",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U018",
+    "category": "arithmetic",
+    "language": "en",
+    "text": "An arithmetic sequence starts at 7 and increases by 4. What is the sum of its first 20 terms?",
+    "answer": "900",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U019",
+    "category": "arithmetic",
+    "language": "zh",
+    "text": "1到30（含两端）中能被3整除的整数之和是多少？",
+    "answer": "165",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U020",
+    "category": "arithmetic",
+    "language": "en",
+    "text": "What is the sum of all odd integers from 1 through 50?",
+    "answer": "625",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U021",
+    "category": "logic",
+    "language": "zh",
+    "text": "A在B前，B在C前，D在A前。四人排成一列，从前往后第三人是谁？",
+    "answer": "B",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U022",
+    "category": "logic",
+    "language": "en",
+    "text": "All red boxes are wooden. Some wooden boxes are round. Must every red box be round? Answer yes or no.",
+    "answer": "no",
+    "kind": "word",
+    "answers": [
+      "否",
+      "不能",
+      "不一定",
+      "不是"
+    ]
+  },
+  {
+    "id": "V4-U023",
+    "category": "logic",
+    "language": "zh",
+    "text": "若P则Q，若Q则R，已知R不成立。P可能成立吗？回答是或否。",
+    "answer": "否",
+    "kind": "word",
+    "answers": [
+      "no",
+      "不可能",
+      "不能"
+    ]
+  },
+  {
+    "id": "V4-U024",
+    "category": "logic",
+    "language": "en",
+    "text": "Twelve people paint, nine play music, and four do both. How many do at least one of these activities?",
+    "answer": "17",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U025",
+    "category": "logic",
+    "language": "zh",
+    "text": "班级30人，18人喜欢苹果，16人喜欢梨。至少多少人两者都喜欢？",
+    "answer": "4",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U026",
+    "category": "logic",
+    "language": "en",
+    "text": "All members of set A belong to set B. No member of B belongs to set C. Can a member of A belong to C? Answer yes or no.",
+    "answer": "no",
+    "kind": "word",
+    "answers": [
+      "否",
+      "不能",
+      "不可能"
+    ]
+  },
+  {
+    "id": "V4-U027",
+    "category": "logic",
+    "language": "zh",
+    "text": "袋中2个红球、3个蓝球，不放回且看不见颜色。最少取几个才能保证取到红球？",
+    "answer": "4",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U028",
+    "category": "logic",
+    "language": "en",
+    "text": "A hexagon has six sides. This shape is a hexagon. How many sides does it have?",
+    "answer": "6",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U029",
+    "category": "logic",
+    "language": "zh",
+    "text": "今天星期一，100天后星期几？今天不计入经过的天数。",
+    "answer": "星期三",
+    "kind": "word",
+    "answers": [
+      "周三",
+      "礼拜三",
+      "Wednesday"
+    ]
+  },
+  {
+    "id": "V4-U030",
+    "category": "logic",
+    "language": "en",
+    "text": "A clock reads 23:45. What time is it 95 minutes later? Use HH:MM in 24-hour time.",
+    "answer": "01:20",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U031",
+    "category": "logic",
+    "language": "zh",
+    "text": "每隔一天浇花，从第1天开始，第1到第7天（含两端）共浇几次？",
+    "answer": "4",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U032",
+    "category": "logic",
+    "language": "en",
+    "text": "What is the next number in the arithmetic sequence 3, 7, 11, 15?",
+    "answer": "19",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U033",
+    "category": "logic",
+    "language": "zh",
+    "text": "袋中只有红袜和蓝袜，每种颜色各2只。不看颜色、不放回地取袜子，至少取几只，才能保证有两只同色？",
+    "answer": "3",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U034",
+    "category": "logic",
+    "language": "en",
+    "text": "Five different people each shake hands once with every other person. How many handshakes occur?",
+    "answer": "10",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U035",
+    "category": "logic",
+    "language": "zh",
+    "text": "已知A比B高，B比C高。三人中谁最高？",
+    "answer": "A",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U036",
+    "category": "logic",
+    "language": "en",
+    "text": "Exactly one of three identical-looking coins is heavier. A balance scale compares the first coin with the second coin; they balance. Which coin is heavier: the first, second, or third?",
+    "answer": "third",
+    "kind": "word",
+    "answers": [
+      "第三",
+      "第三枚",
+      "3",
+      "三"
+    ]
+  },
+  {
+    "id": "V4-U037",
+    "category": "logic",
+    "language": "zh",
+    "text": "盒中原有8支笔，取走3支，没有放回，也没有加入其他笔。盒中还剩几支笔？",
+    "answer": "5",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U038",
+    "category": "logic",
+    "language": "en",
+    "text": "If a statement P is false, is the statement \"not P\" true or false?",
+    "answer": "true",
+    "kind": "word",
+    "answers": [
+      "真",
+      "正确",
+      "成立"
+    ]
+  },
+  {
+    "id": "V4-U039",
+    "category": "logic",
+    "language": "zh",
+    "text": "所有正方形都是长方形，某图形是正方形。它必定是长方形吗？",
+    "answer": "是",
+    "kind": "word",
+    "answers": [
+      "yes",
+      "是的",
+      "必定",
+      "一定"
+    ]
+  },
+  {
+    "id": "V4-U040",
+    "category": "logic",
+    "language": "en",
+    "text": "A box contains 3 red counters, 4 blue counters, and 5 green counters. How many counters are not blue?",
+    "answer": "8",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U041",
+    "category": "science",
+    "language": "zh",
+    "text": "水的化学式是什么？",
+    "answer": "H2O",
+    "kind": "word",
+    "answers": [
+      "H₂O"
+    ]
+  },
+  {
+    "id": "V4-U042",
+    "category": "science",
+    "language": "en",
+    "text": "Which chemical element has the symbol O?",
+    "answer": "oxygen",
+    "kind": "word",
+    "answers": [
+      "氧",
+      "氧元素"
+    ]
+  },
+  {
+    "id": "V4-U043",
+    "category": "science",
+    "language": "zh",
+    "text": "在通常的十进制国际单位制中，1千米等于多少米？",
+    "answer": "1000",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U044",
+    "category": "science",
+    "language": "en",
+    "text": "How many square centimetres are in 3 square metres?",
+    "answer": "30000",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U045",
+    "category": "science",
+    "language": "zh",
+    "text": "2分钟30秒一共是多少秒？",
+    "answer": "150",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U046",
+    "category": "science",
+    "language": "en",
+    "text": "What SI unit measures electrical resistance?",
+    "answer": "ohm",
+    "kind": "word",
+    "answers": [
+      "ohms",
+      "欧姆",
+      "Ω"
+    ]
+  },
+  {
+    "id": "V4-U047",
+    "category": "science",
+    "language": "zh",
+    "text": "普通植物在光照下进行光合作用时，从空气中主要吸收哪种气体？",
+    "answer": "二氧化碳",
+    "kind": "word",
+    "answers": [
+      "carbon dioxide",
+      "CO2",
+      "CO₂"
+    ]
+  },
+  {
+    "id": "V4-U048",
+    "category": "science",
+    "language": "en",
+    "text": "Which organ pumps blood through the human body?",
+    "answer": "heart",
+    "kind": "word",
+    "answers": [
+      "心脏",
+      "the heart"
+    ]
+  },
+  {
+    "id": "V4-U049",
+    "category": "science",
+    "language": "zh",
+    "text": "金属元素铁的化学符号是什么？",
+    "answer": "Fe",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U050",
+    "category": "science",
+    "language": "en",
+    "text": "At standard atmospheric pressure, pure water boils at how many degrees Celsius?",
+    "answer": "100",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U051",
+    "category": "science",
+    "language": "zh",
+    "text": "声音不能在真空中传播，对还是错？",
+    "answer": "对",
+    "kind": "word",
+    "answers": [
+      "正确",
+      "真",
+      "true",
+      "yes"
+    ]
+  },
+  {
+    "id": "V4-U052",
+    "category": "science",
+    "language": "en",
+    "text": "Which planet is closest to the Sun?",
+    "answer": "Mercury",
+    "kind": "word",
+    "answers": [
+      "水星"
+    ]
+  },
+  {
+    "id": "V4-U053",
+    "category": "science",
+    "language": "zh",
+    "text": "普通成年人的心脏有几个心腔？",
+    "answer": "4",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U054",
+    "category": "science",
+    "language": "en",
+    "text": "How many bits are in one byte?",
+    "answer": "8",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U055",
+    "category": "science",
+    "language": "zh",
+    "text": "电压10伏、电阻5欧姆，按欧姆定律电流为多少安培？",
+    "answer": "2",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U056",
+    "category": "science",
+    "language": "en",
+    "text": "A rectangle is 12 cm long and 7 cm wide. What is its area in square centimetres?",
+    "answer": "84",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U057",
+    "category": "science",
+    "language": "zh",
+    "text": "三角形底14厘米、对应高9厘米，面积多少平方厘米？",
+    "answer": "63",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U058",
+    "category": "science",
+    "language": "en",
+    "text": "What force keeps planets in orbit around the Sun?",
+    "answer": "gravity",
+    "kind": "word",
+    "answers": [
+      "引力",
+      "万有引力",
+      "gravitational force"
+    ]
+  },
+  {
+    "id": "V4-U059",
+    "category": "science",
+    "language": "zh",
+    "text": "中性原子的质子数与电子数相等，对还是错？",
+    "answer": "对",
+    "kind": "word",
+    "answers": [
+      "正确",
+      "true",
+      "yes"
+    ]
+  },
+  {
+    "id": "V4-U060",
+    "category": "science",
+    "language": "en",
+    "text": "A car travels 150 km in 2.5 hours at a constant speed. What is its speed in km/h?",
+    "answer": "60",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U061",
+    "category": "everyday",
+    "language": "zh",
+    "text": "公历的闰年，2月份一共有多少天？",
+    "answer": "29",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U062",
+    "category": "everyday",
+    "language": "en",
+    "text": "A box contains 2.5 kg of rice. Each bag holds 125 g. How many full bags can be filled with no waste?",
+    "answer": "20",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U063",
+    "category": "everyday",
+    "language": "zh",
+    "text": "750毫升加1.25升，共多少升？",
+    "answer": "2",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U064",
+    "category": "everyday",
+    "language": "en",
+    "text": "A 150-unit price falls to 120. What is the percentage decrease? Give the number before the percent sign.",
+    "answer": "20",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U065",
+    "category": "everyday",
+    "language": "zh",
+    "text": "有250升容量的水箱，已有容量的3/5，再加入40升且无损耗。现在多少升？",
+    "answer": "190",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U066",
+    "category": "everyday",
+    "language": "en",
+    "text": "You buy three items priced at 40 each with a 10% discount. Shipping costs 8 without a discount. What is the total payment?",
+    "answer": "116",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U067",
+    "category": "everyday",
+    "language": "zh",
+    "text": "本金1000元，年利率5%，单利两年，不计其他费用。本息共多少元？",
+    "answer": "1100",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U068",
+    "category": "everyday",
+    "language": "en",
+    "text": "How many months are in three years?",
+    "answer": "36",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U069",
+    "category": "everyday",
+    "language": "zh",
+    "text": "每盒12支铅笔，买7盒再送出9支，还剩多少支？",
+    "answer": "75",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U070",
+    "category": "everyday",
+    "language": "en",
+    "text": "How many minutes are in one and a half hours?",
+    "answer": "90",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U071",
+    "category": "everyday",
+    "language": "zh",
+    "text": "摄氏温度计从-5度升到12度，上升多少摄氏度？",
+    "answer": "17",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U072",
+    "category": "everyday",
+    "language": "en",
+    "text": "A recipe needs 300 g of flour for four servings. How many grams are needed for six servings at the same ratio?",
+    "answer": "450",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U073",
+    "category": "everyday",
+    "language": "zh",
+    "text": "二进制开关有开、关两种状态，3个独立开关共有几种状态组合？",
+    "answer": "8",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U074",
+    "category": "everyday",
+    "language": "en",
+    "text": "A ticket costs 12 dollars before a 25% discount. How many dollars does it cost after that discount?",
+    "answer": "9",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U075",
+    "category": "everyday",
+    "language": "zh",
+    "text": "一般按英文词典字母顺序排列，apple、pear、banana中排在中间的是哪个？",
+    "answer": "banana",
+    "kind": "word",
+    "answers": [
+      "香蕉"
+    ]
+  },
+  {
+    "id": "V4-U076",
+    "category": "everyday",
+    "language": "en",
+    "text": "In the usual Monday-to-Sunday ordering of a week, what day comes immediately after Thursday?",
+    "answer": "Friday",
+    "kind": "word",
+    "answers": [
+      "星期五",
+      "周五",
+      "礼拜五"
+    ]
+  },
+  {
+    "id": "V4-U077",
+    "category": "everyday",
+    "language": "zh",
+    "text": "1000克物品分成8份，每份相同，每份多少克？",
+    "answer": "125",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U078",
+    "category": "everyday",
+    "language": "en",
+    "text": "A tank is 60% full and holds 180 litres of water. What is its full capacity in litres?",
+    "answer": "300",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U079",
+    "category": "everyday",
+    "language": "zh",
+    "text": "一本书120页，已读全书的3/8，还剩多少页？",
+    "answer": "75",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U080",
+    "category": "everyday",
+    "language": "en",
+    "text": "A shop opens at 08:30 and closes at 17:00, with a 30-minute break. How many hours is it open excluding the break?",
+    "answer": "8",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U081",
+    "category": "text",
+    "language": "zh",
+    "text": "忽略大小写，Abracadabra中字母a出现多少次？",
+    "answer": "5",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U082",
+    "category": "text",
+    "language": "en",
+    "text": "From the ordered list [\"north\", \"east\", \"south\", \"west\"], return the third item, counting from 1. Preserve case.",
+    "answer": "south",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U083",
+    "category": "text",
+    "language": "zh",
+    "text": "将blue-sky删除连字符后转为大写，保留要求的大小写。",
+    "answer": "BLUESKY",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U084",
+    "category": "text",
+    "language": "en",
+    "text": "In JSON {\"items\":[{\"id\":\"A\",\"qty\":4},{\"id\":\"B\",\"qty\":7}]}, what is the qty of the item whose id is B?",
+    "answer": "7",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U085",
+    "category": "text",
+    "language": "zh",
+    "text": "数据为 {\"items\":[{\"n\":2},{\"n\":3}]}，items中所有n之和是多少？",
+    "answer": "5",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U086",
+    "category": "text",
+    "language": "en",
+    "text": "How many distinct integers occur in [2, 4, 2, 6, 4, 8]?",
+    "answer": "4",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U087",
+    "category": "text",
+    "language": "zh",
+    "text": "字符串a12b03c4中，连续数字视为十进制整数（03视为3），这些整数之和是多少？",
+    "answer": "19",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U088",
+    "category": "text",
+    "language": "en",
+    "text": "Join the strings [\"red\", \"green\", \"blue\"] in their given order using | as the separator, with no added spaces. Preserve case.",
+    "answer": "red|green|blue",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U089",
+    "category": "text",
+    "language": "zh",
+    "text": "把abcdef向左循环移动2个字符（移出部分接到末尾），保留大小写。",
+    "answer": "cdefab",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U090",
+    "category": "text",
+    "language": "en",
+    "text": "How many different words occur in the comma-separated list \"pear,apple,pear,plum,apple\"?",
+    "answer": "3",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U091",
+    "category": "codec",
+    "language": "zh",
+    "text": "将标准Base64字符串SGVsbG8=解码为ASCII文本，保留大小写。",
+    "answer": "Hello",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U092",
+    "category": "codec",
+    "language": "en",
+    "text": "Decode ASCII hexadecimal bytes 41 42 43 to text. Preserve case.",
+    "answer": "ABC",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U093",
+    "category": "codec",
+    "language": "zh",
+    "text": "将ASCII文本ABC编码为十六进制字节串，不加空格和前缀。",
+    "answer": "414243",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U094",
+    "category": "codec",
+    "language": "en",
+    "text": "URL-encode \"a b\" by replacing its single space with %20 and leaving the letters unchanged.",
+    "answer": "a%20b",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U095",
+    "category": "codec",
+    "language": "zh",
+    "text": "将 URL 编码文本 `red%20apple` 中的 %20 解码为一个空格，其他字符保持不变。解码后的文本是什么？",
+    "answer": "red apple",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U096",
+    "category": "codec",
+    "language": "en",
+    "text": "Apply ROT13 to the lowercase ASCII word \"hello\". Preserve lowercase.",
+    "answer": "uryyb",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U097",
+    "category": "codec",
+    "language": "zh",
+    "text": "二进制整数110101转换为十进制是多少？",
+    "answer": "53",
+    "kind": "number",
+    "answers": []
+  },
+  {
+    "id": "V4-U098",
+    "category": "codec",
+    "language": "en",
+    "text": "Convert decimal 255 to hexadecimal using lowercase letters and no prefix.",
+    "answer": "ff",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U099",
+    "category": "codec",
+    "language": "zh",
+    "text": "将ASCII十进制字节72和105按顺序解码并拼接，保留大小写。",
+    "answer": "Hi",
+    "kind": "exact",
+    "answers": []
+  },
+  {
+    "id": "V4-U100",
+    "category": "codec",
+    "language": "en",
+    "text": "Decode the HTML entity in \"Tom &amp; Jerry\" to its character. Preserve all other characters, including spaces and case.",
+    "answer": "Tom & Jerry",
+    "kind": "exact",
+    "answers": []
+  }
+]

@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hackmon · 赛事档案</title><link rel="stylesheet" href="game.css"><link rel="stylesheet" href="hackmon.css"></head>
+<body><main class="admin-panel">
+<header class="admin-header"><div><span class="entry-kicker">HACKMON / ORGANIZER</span><h1>联盟赛事档案</h1></div><a href="./">返回游戏 ↗</a></header>
+<form id="adminLogin" class="admin-login"><label for="adminToken">管理令牌</label><input id="adminToken" type="password" autocomplete="off" required><button class="game-button blue">连接档案</button><button type="button" id="adminLogout" class="game-button outline" hidden>退出管理</button></form>
+<p id="adminStatus" class="admin-status" role="status" aria-live="polite"></p>
+<div id="adminWorkspace" hidden>
+<section class="admin-toolbar"><p id="adminBudget"></p><button id="refreshAccounts" class="game-button outline">刷新记录</button></section>
+<section class="admin-issue"><div><h2>签发参赛码</h2><p>平台 ID 与比赛平台保持一致，核对后将参赛码私下发给对应队伍。</p></div><form id="issueEntry"><label class="sr-only" for="issuePlatformId">平台 ID</label><input id="issuePlatformId" maxlength="64" placeholder="平台 ID" required><button class="game-button gold">生成参赛码</button></form><div id="issuedEntry" role="status" hidden></div></section>
+<div class="admin-columns"><section class="admin-roster"><div class="admin-section-head"><h2>选手列表</h2><span id="accountCount"></span></div><label class="sr-only" for="accountSearch">搜索平台 ID 或昵称</label><input id="accountSearch" type="search" placeholder="搜索平台 ID / 昵称"><div id="adminAccounts"></div></section><section id="adminDetail" class="admin-dossier" aria-live="polite"><p class="admin-empty">选择一支队伍，查看参赛档案。</p></section></div>
+</div></main><script type="module" src="admin.js"></script></body></html>
